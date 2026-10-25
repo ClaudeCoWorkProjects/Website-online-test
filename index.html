@@ -268,7 +268,6 @@ em,i,cite,address,dfn{font-style:normal}
 nav a,.more a,main a:not(.pop-link){color:var(--ink)}
 .more{color:#ff6a00}
 @keyframes rgblink{0%{text-shadow:-8px 0 rgba(255,60,60,.95),8px 0 rgba(60,225,255,.95)}14%{text-shadow:-3px 0 rgba(255,60,60,.85),3px 0 rgba(60,225,255,.85)}26%{text-shadow:-9px 0 rgba(255,60,60,.95),9px 0 rgba(60,225,255,.95)}42%{text-shadow:-2px 0 rgba(255,60,60,.8),2px 0 rgba(60,225,255,.8)}60%{text-shadow:-5px 0 rgba(255,60,60,.85),5px 0 rgba(60,225,255,.85)}100%{text-shadow:0 0 rgba(255,60,60,0),0 0 rgba(60,225,255,0)}}
-}
 @media(hover:hover) and (prefers-reduced-motion:no-preference){
   nav a:hover,.more a:hover,main a:not(.pop-link):hover,nav a:focus-visible,.more a:focus-visible,main a:not(.pop-link):focus-visible{animation:rgblink .9s ease-out 1}
 }
@@ -376,6 +375,7 @@ nav.tl{display:block;margin:0}
 .tl a{display:grid;grid-template-columns:12px minmax(0,1fr);gap:14px;align-items:center;padding:8px 0;text-decoration:none;color:var(--ink);cursor:pointer;opacity:.3;transition:opacity .35s}
 .tl .dot{width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid #bdbdbd;position:relative;transition:background .3s,border-color .3s}
 .tl a.on{opacity:1}
+.tl a:hover{opacity:1}
 .tl a.on .dot{background:var(--hot);border-color:var(--hot)}
 .tl .tlb{justify-self:start;text-align:left;font-family:var(--sans);font-size:18px;line-height:1.2;font-weight:400;letter-spacing:-.01em;transition:font-size .35s cubic-bezier(.22,.8,.2,1)}
 .tl a.on .tlb{font-size:23px}
