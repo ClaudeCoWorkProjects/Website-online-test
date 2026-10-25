@@ -415,7 +415,8 @@ h1.page span{color:var(--hot)}
 #load,#err{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--mute);pointer-events:none;text-align:center;padding:0 24px}
 #load[hidden],#err[hidden]{display:none}
 .cards{padding-top:calc(50vh - 176px);padding-bottom:calc(50vh - 60px)}
-.cards .sec{opacity:0;transition:opacity .4s ease,transform .6s cubic-bezier(.22,.8,.2,1)}
+.cards .sec{transition:opacity .4s ease,transform .6s cubic-bezier(.22,.8,.2,1)}
+.js .cards .sec{opacity:0}
 .cards .sec.active{opacity:1;background:transparent;box-shadow:none}
 @media(min-width:861px){
   main.twocol{display:grid;grid-template-columns:260px minmax(0,400px) minmax(0,1fr);gap:clamp(28px,3.5vw,52px);justify-content:center;align-items:start;width:min(1240px,100% - 48px)}
@@ -440,6 +441,7 @@ h1.page span{color:var(--hot)}
 }
 
 </style>
+<script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
 <div id="bar"></div>
@@ -1174,7 +1176,7 @@ requestAnimationFrame(frame);
   var secs=[].slice.call(document.querySelectorAll('.sec'));
   function markActive(){
     var vh=innerHeight, y=vh*(innerWidth>860?0.5:0.4), cur=null;
-    secs.forEach(function(sc){var r=sc.getBoundingClientRect(); if(r.top<=y && r.bottom>y) cur=sc});
+    var best=1e9; secs.forEach(function(sc){var r=sc.getBoundingClientRect(),d=Math.abs((r.top+r.bottom)/2-y); if(d<best){best=d;cur=sc}});
     secs.forEach(function(sc){sc.classList.toggle('active',sc===cur)});
   }
 
